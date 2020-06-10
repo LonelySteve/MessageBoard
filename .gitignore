@@ -1,0 +1,7 @@
+.vscode/
+.idea/
+lib/
+sql/
+vendor/
+.env
+templates_c/
