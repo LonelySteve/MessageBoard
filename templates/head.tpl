@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="https://at.alicdn.com/t/font_1170412_j8dpwz4h0vo.css">
     {if $__debug__}
         {* debug 模式下加载本地资源 *}
-        <link rel="stylesheet" href="static/lib/bootstrap-3.3.7-dist/css/bootstrap.css">
-        <link rel="stylesheet" href="static/lib/font-awesome-4.7.0/css/font-awesome.css">
+        <link rel="stylesheet" href="/static/lib/bootstrap-3.3.7-dist/css/bootstrap.css">
+        <link rel="stylesheet" href="/static/lib/font-awesome-4.7.0/css/font-awesome.css">
     {else}
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     {/if}
-    <link rel="stylesheet" href="static/css/main.css">
+    <link rel="stylesheet" href="/static/css/main.css">
 
     <style>
         html,

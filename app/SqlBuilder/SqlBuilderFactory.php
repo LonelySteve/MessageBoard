@@ -10,7 +10,7 @@ class SqlBuilderFactory
             case "mysql":
                 return MySqlBuilder::class;
             default:
-                throw new \InvalidArgumentException("Unsupported database type!");
+                throw new \InvalidArgumentException("Unsupported database type (${$name})!");
         }
     }
 }

@@ -45,20 +45,16 @@ class PostController extends BaseController
 
         $amount = $dao->count()->fetch(\PDO::FETCH_UNIQUE)[0];
 
-        $page_count = ceil($amount / $size);
+        $page_max_count = ceil($amount / $size);
 
-        if ($page > $page_count) {
-            $cur_page = $page_count;
-        } else {
-            $cur_page = $page;
-        }
+        $cur_page = $page > $page_max_count ?  max($page_max_count, 1) : $page;
 
         $stat = $dao->query(($cur_page - 1) * $size, $size);
 
         while ($result = $stat->fetchObject(Post::class)) {
             $results[] = $result;
         }
-        
+
         return [
             "amount" => $amount,
             "page_count" => ceil($amount / $size),

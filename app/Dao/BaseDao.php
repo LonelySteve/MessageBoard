@@ -6,7 +6,7 @@ namespace App\Dao;
 use App\Config\DBConfig;
 use App\SqlBuilder;
 use App\SqlBuilder\SqlBuilderFactory;
-use App\exceptions\SqlExecuteException;
+use App\Exceptions\SqlExecuteException;
 use App\Util\Util;
 
 abstract class BaseDao
@@ -107,13 +107,13 @@ abstract class BaseDao
             // 判断SQL是否执行成功，未成功则抛出异常
             $info = $stat->errorInfo();
             if ($info[0] !== "00000") {
-                throw new SqlExecuteException($info[2]);
+                throw new SqlExecuteException($info[0] . ", " . $info[1] . ", " . $info[2]);
             }
         }
         // 通过PDO对象判断SQL是否合法，不合法则抛出异常
         $info = $pdo->errorInfo();
         if ($info[0] !== "00000") {
-            throw new SqlExecuteException($info[2]);
+            throw new SqlExecuteException($info[0] . ", " . $info[1] . ", " . $info[2]);
         }
         return $stat;
     }

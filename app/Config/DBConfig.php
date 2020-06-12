@@ -2,6 +2,8 @@
 
 namespace App\Config;
 
+use Exception;
+
 class DBConfig
 {
     public $db_type;

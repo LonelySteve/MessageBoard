@@ -1,13 +1,14 @@
 {
+  "name": "jloeve/message-board",
+  "description": "一个使用 PHP + Bootstarp 编写的简易留言板",
   "require": {
     "smarty/smarty": "~3.1",
-    "vlucas/phpdotenv": "^3.3",
     "ext-pdo": "*",
     "ext-json": "*"
   },
   "autoload": {
-     "psr-4":{
-       "App\\": "app/"
-     }
+    "psr-4": {
+      "App\\": "app/"
+    }
   }
 }

@@ -14,7 +14,7 @@
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <a href="#">
-                                            <img src="img/face/default.png" alt="{$data->name}"
+                                            <img src="static/images/face/default.png" alt="{$data->name}"
                                                  class="face img-circle center-block" width="50" height="50">
                                         </a>
                                     </div>
@@ -124,27 +124,27 @@
                         {* 第一种情况 ： 页数少于等于 5个 *}
                         {if $__data__.page_count <= 5}
                             {for $i=1 to $__data__.page_count}
-                                <li><a href="/?page={$i}">{$i}</a></li>
+                                <li><a href="/index.php/?page={$i}">{$i}</a></li>
                             {/for}
                         {else}
                             {* 第二种情况 ： 页数大于 5个 *}
-                            <li><a href="/?page=1">1</a></li>
+                            <li><a href="/index.php/?page=1">1</a></li>
                             {if $__data__.cur_page-1>2}
                                 <li><a href="#" class="disabled">...</a></li>
-                                <li><a href="/?page={$__data__.cur_page-1}">{$__data__.cur_page-1}</a></li>
+                                <li><a href="/index.php/?page={$__data__.cur_page-1}">{$__data__.cur_page-1}</a></li>
                             {elseif $__data__.cur_page-1==2}
-                                <li><a href="/?page={$__data__.cur_page-1}">{$__data__.cur_page-1}</a></li>
+                                <li><a href="/index.php/?page={$__data__.cur_page-1}">{$__data__.cur_page-1}</a></li>
                             {/if}
                             {if $__data__.cur_page!=1 && $__data__.cur_page!=$__data__.page_count}
-                                <li><a href="/?page={$__data__.cur_page}">{$__data__.cur_page}</a></li>
+                                <li><a href="/index.php/?page={$__data__.cur_page}">{$__data__.cur_page}</a></li>
                             {/if}
                             {if $__data__.page_count-$__data__.cur_page>2}
-                                <li><a href="/?page={$__data__.cur_page+1}">{$__data__.cur_page+1}</a></li>
+                                <li><a href="/index.php/?page={$__data__.cur_page+1}">{$__data__.cur_page+1}</a></li>
                                 <li><a href="#" class="disabled">...</a></li>
                             {elseif $__data__.page_count-$__data__.cur_page==2}
-                                <li><a href="/?page={$__data__.cur_page+1}">{$__data__.cur_page+1}</a></li>
+                                <li><a href="/index.php/?page={$__data__.cur_page+1}">{$__data__.cur_page+1}</a></li>
                             {/if}
-                            <li><a href="/?page={$__data__.page_count}">{$__data__.page_count}</a></li>
+                            <li><a href="/index.php/?page={$__data__.page_count}">{$__data__.page_count}</a></li>
                         {/if}
                     </ul>
                 </div>
@@ -199,9 +199,9 @@
         $("#text-target-page").keyup(function (event) {
             if (event.which === 13) {
                 if (this.value >= 1)
-                    window.open("/?page=" + this.value, "_self");
+                    window.open("/index.php/?page=" + this.value, "_self");
                 else
-                    window.open("/?page=" + 1, "_self");
+                    window.open("/index.php/?page=" + 1, "_self");
             }
         })
     });

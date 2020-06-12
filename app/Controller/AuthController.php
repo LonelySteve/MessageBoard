@@ -13,10 +13,12 @@ class AuthController extends BaseController
     {
         $dao = new AdminDao($this->db_config);
 
-        $result = $dao->get_sql_builder_instance()
+        $result = $dao
+            ->get_sql_builder_instance()
             ->select()
             ->where(["username", $username])
-            ->execute([\PDO::PARAM_INT, \PDO::PARAM_INT])->fetch(\PDO::FETCH_ASSOC);
+            ->execute([\PDO::PARAM_STR])
+            ->fetch(\PDO::FETCH_ASSOC);
 
         if ($result) {
             if (md5($password) === $result["password"]) {
