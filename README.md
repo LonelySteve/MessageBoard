@@ -1,5 +1,7 @@
 # 简易留言板
 
+> [点我查看预览地址](http://server.jloeve.top:9999)，不保证长期可用。
+
 ## 截图
 
 ![电脑端](docs/images/电脑端效果.png)
