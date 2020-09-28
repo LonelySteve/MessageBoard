@@ -21,4 +21,5 @@ RUN sed -i 's#http://deb.debian.org#https://mirrors.163.com#g' /etc/apt/sources.
     && apt-get update \
     && apt-get upgrade -y \
     && apt-get install zip unzip -y \
+    && composer config repo.packagist composer https://mirrors.aliyun.com/composer/ \
     && composer install
