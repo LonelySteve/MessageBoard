@@ -149,7 +149,7 @@
                         return;
                     }
 
-                    $.post("api/post/add.php", {
+                    $.post("api/post/add", {
                         "name": name,
                         "email": email,
                         "qq": qq,
@@ -158,9 +158,9 @@
                         "content": content
                     }, function (data) {
                         if (data.code === 0) {
-                            window.location.href = "info.php?message=提交成功！&go_url=/";
+                            window.location.href = "info?message=提交成功！&go_url=/";
                         } else {
-                            window.location.href = "info.php?type=error&go_url=post.php&message=提交失败！" + data.message;
+                            window.location.href = "info?type=error&go_url=post&message=提交失败！" + data.message;
                         }
                     });
                 }

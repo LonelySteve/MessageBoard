@@ -124,27 +124,27 @@
                         {* 第一种情况 ： 页数少于等于 5个 *}
                         {if $__data__.page_count <= 5}
                             {for $i=1 to $__data__.page_count}
-                                <li><a href="/index.php/?page={$i}">{$i}</a></li>
+                                <li><a href="/index/?page={$i}">{$i}</a></li>
                             {/for}
                         {else}
                             {* 第二种情况 ： 页数大于 5个 *}
-                            <li><a href="/index.php/?page=1">1</a></li>
+                            <li><a href="/index/?page=1">1</a></li>
                             {if $__data__.cur_page-1>2}
                                 <li><a href="#" class="disabled">...</a></li>
-                                <li><a href="/index.php/?page={$__data__.cur_page-1}">{$__data__.cur_page-1}</a></li>
+                                <li><a href="/index/?page={$__data__.cur_page-1}">{$__data__.cur_page-1}</a></li>
                             {elseif $__data__.cur_page-1==2}
-                                <li><a href="/index.php/?page={$__data__.cur_page-1}">{$__data__.cur_page-1}</a></li>
+                                <li><a href="/index/?page={$__data__.cur_page-1}">{$__data__.cur_page-1}</a></li>
                             {/if}
                             {if $__data__.cur_page!=1 && $__data__.cur_page!=$__data__.page_count}
-                                <li><a href="/index.php/?page={$__data__.cur_page}">{$__data__.cur_page}</a></li>
+                                <li><a href="/index/?page={$__data__.cur_page}">{$__data__.cur_page}</a></li>
                             {/if}
                             {if $__data__.page_count-$__data__.cur_page>2}
-                                <li><a href="/index.php/?page={$__data__.cur_page+1}">{$__data__.cur_page+1}</a></li>
+                                <li><a href="/index/?page={$__data__.cur_page+1}">{$__data__.cur_page+1}</a></li>
                                 <li><a href="#" class="disabled">...</a></li>
                             {elseif $__data__.page_count-$__data__.cur_page==2}
-                                <li><a href="/index.php/?page={$__data__.cur_page+1}">{$__data__.cur_page+1}</a></li>
+                                <li><a href="/index/?page={$__data__.cur_page+1}">{$__data__.cur_page+1}</a></li>
                             {/if}
-                            <li><a href="/index.php/?page={$__data__.page_count}">{$__data__.page_count}</a></li>
+                            <li><a href="/index/?page={$__data__.page_count}">{$__data__.page_count}</a></li>
                         {/if}
                     </ul>
                 </div>
@@ -167,11 +167,11 @@
 <script>
     function delete_post(pid) {
         if (confirm("确定删除pid:" + pid + "的留言吗？")) {
-            $.get("api/post/delete.php?pid=" + pid, function (data) {
+            $.get("api/post/delete?pid=" + pid, function (data) {
                 if (data.code === 0) {
-                    window.location.href = "info.php?message=删除成功！&time=1";
+                    window.location.href = "info?message=删除成功！&time=1";
                 } else {
-                    window.location.href = "info.php?message='删除失败！" + data.message;
+                    window.location.href = "info?message='删除失败！" + data.message;
                 }
             });
         }
@@ -180,16 +180,16 @@
     function reply_post(pid) {
         input = prompt("请输入对pid:" + pid + "的回复，注意：这将覆盖原有的回复！");
         if (input) {
-            $.post("api/post/update_reply.php",
+            $.post("api/post/update_reply",
                 {
                     "pid": pid,
                     "content": input
                 },
                 function (data) {
                     if (data.code === 0) {
-                        window.location.href = "info.php?message=回复成功！&time=1";
+                        window.location.href = "info?message=回复成功！&time=1";
                     } else {
-                        window.location.href = "info.php?message='回复失败！" + data.message;
+                        window.location.href = "info?message='回复失败！" + data.message;
                     }
                 });
         }
@@ -199,9 +199,9 @@
         $("#text-target-page").keyup(function (event) {
             if (event.which === 13) {
                 if (this.value >= 1)
-                    window.open("/index.php/?page=" + this.value, "_self");
+                    window.open("/index/?page=" + this.value, "_self");
                 else
-                    window.open("/index.php/?page=" + 1, "_self");
+                    window.open("/index/?page=" + 1, "_self");
             }
         })
     });

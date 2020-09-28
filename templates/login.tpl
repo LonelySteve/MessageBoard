@@ -43,7 +43,7 @@
             $("#login-btn").click(
                 function (event) {
                     event.preventDefault();
-                    $.post("api/account/login.php",
+                    $.post("api/account/login",
                         {
                             "username": $("#username").val(),
                             "password": $("#password").val()
@@ -51,9 +51,9 @@
                         function (data) {
                             if (data.code !== 0) {
                                 // 懒得做更高级的提示，直接跳转到指定提示页面得了
-                                window.location.href = "info.php?type=error&message=" + data.message + "&go_url=login.php";
+                                window.location.href = "info?type=error&message=" + data.message + "&go_url=login";
                             } else {
-                                window.location.href = "info.php?type=hint&message=" + data.message + "&go_url=/";
+                                window.location.href = "info?type=hint&message=" + data.message + "&go_url=/";
                             }
                         }
                     );

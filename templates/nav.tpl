@@ -12,7 +12,7 @@
     <div class="collapse navbar-collapse" id="menu">
         <ul class="nav navbar-nav">
             <li class="active"><a href="/">留言板</a></li>
-            <li><a href="post.php">我要留言</a></li>
+            <li><a href="post">我要留言</a></li>
             {if isset($admin_name)}
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -20,11 +20,11 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="logout.php">登出</a></li>
+                        <li><a href="logout">登出</a></li>
                     </ul>
                 </li>
             {else}
-                <li><a href="login.php">管理登录</a></li>
+                <li><a href="login">管理登录</a></li>
             {/if}
         </ul>
     </div>
