@@ -26,7 +26,10 @@
             </div>
             {if $go_url}
                 <div class="row">
-                    <span class="text-muted" id="time-hint">还有{$time}秒将自动跳转</span>
+                    <span class="text-muted" id="time-hint">还有<mark id="countdown">{$time}</mark>秒将自动跳转</span>
+                </div>
+                <div class="row"> 
+                    <span class="text-muted" id="manual-jump">如果未能成功跳转，请点击<a herf='{$go_url}'>这里</a>手动跳转</span>
                 </div>
             {/if}
         </div>
@@ -38,10 +41,18 @@
     <script>
         $(document).ready(
             function () {
-                setTimeout(function () {
-                    window.location.href = "{$go_url}";
-                    $("#time-hint").html("如果未能成功跳转，请点击<a herf='{$go_url}'>这里</a>手动跳转")
-                }, {$time * 1000});
+                // 动态倒计时效果
+                let remain_seconds = {$time};
+
+                var int = setInterval(function () {
+                    if(remain_seconds <= 0){
+                        clearInterval(int);
+                        window.location.href = "{$go_url}";
+                        return;
+                    }
+                    remain_seconds--;
+                    $("#countdown").text(remain_seconds);
+                }, 1000);
             }
         );
     </script>
