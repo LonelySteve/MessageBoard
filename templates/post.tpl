@@ -160,7 +160,7 @@
                         if (data.code === 0) {
                             window.open("info?message=提交成功！&go_url=/", "_self");
                         } else {
-                            window.open(`info?type=error&go_url=post&message=提交失败！${data.message}`, "_self");
+                            window.open("info?type=error&go_url=post&message=提交失败！" + "data.message", "_self");
                         }
                     });
                 }

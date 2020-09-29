@@ -166,19 +166,19 @@
 {include file="bootstrap.tpl"}
 <script>
     function delete_post(pid) {
-        if (confirm(`确定删除 pid: ${pid} 的留言吗？`)) {
+        if (confirm("确定删除 pid: " + pid + "的留言吗？")) {
             $.get("api/post/delete", {pid: pid}, function (data) {
                 if (data.code === 0) {
                     window.open("info?message=删除成功！&time=1", "_self");
                 } else {
-                    window.open(`info?message=删除失败！${data.message}`, "_self");
+                    window.open("info?message=删除失败！"+ data.message, "_self");
                 }
             });
         }
     }
 
     function reply_post(pid) {
-        input = prompt(`请输入对pid: ${pid} 的回复，注意：这将覆盖原有的回复！`);
+        input = prompt("请输入对pid: " + pid +"的回复，注意：这将覆盖原有的回复！");
         if (input) {
             $.post("api/post/update_reply",
                 {
@@ -189,7 +189,7 @@
                     if (data.code === 0) {
                         window.open("info?message=回复成功！&time=1", "_self");
                     } else {
-                        window.open(`info?message=回复失败！${data.message}`, "_self");
+                        window.open("info?message=回复失败！" + data.message, "_self");
                     }
                 });
         }
