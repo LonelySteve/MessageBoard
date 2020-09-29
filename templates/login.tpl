@@ -51,9 +51,9 @@
                         function (data) {
                             if (data.code !== 0) {
                                 // 懒得做更高级的提示，直接跳转到指定提示页面得了
-                                window.location.href = "info?type=error&message=" + data.message + "&go_url=login";
+                                window.open(`info?type=error&message=${data.message}&go_url=login`, "_self");
                             } else {
-                                window.location.href = "info?type=hint&message=" + data.message + "&go_url=/";
+                                window.open(`info?type=hint&message=${data.message}&go_url=/`, "_self");
                             }
                         }
                     );

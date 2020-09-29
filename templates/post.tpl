@@ -158,9 +158,9 @@
                         "content": content
                     }, function (data) {
                         if (data.code === 0) {
-                            window.location.href = "info?message=提交成功！&go_url=/";
+                            window.open("info?message=提交成功！&go_url=/", "_self");
                         } else {
-                            window.location.href = "info?type=error&go_url=post&message=提交失败！" + data.message;
+                            window.open(`info?type=error&go_url=post&message=提交失败！${data.message}`, "_self");
                         }
                     });
                 }

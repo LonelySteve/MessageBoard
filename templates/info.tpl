@@ -47,7 +47,7 @@
                 var int = setInterval(function () {
                     if(remain_seconds <= 0){
                         clearInterval(int);
-                        window.location.href = "{$go_url}";
+                        window.open("{$go_url}", "_self");
                         return;
                     }
                     remain_seconds--;
