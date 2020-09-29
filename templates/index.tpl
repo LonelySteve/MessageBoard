@@ -167,7 +167,7 @@
 <script>
     function delete_post(pid) {
         if (confirm("确定删除 pid: " + pid + "的留言吗？")) {
-            $.get("api/post/delete", {pid: pid}, function (data) {
+            $.get("api/post/delete", {ldelim}pid: pid{rdelim}, function (data) {
                 if (data.code === 0) {
                     window.open("info?message=删除成功！&time=1", "_self");
                 } else {
