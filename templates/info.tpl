@@ -29,7 +29,7 @@
                     <span class="text-muted" id="time-hint">还有<mark id="countdown">{$time}</mark>秒将自动跳转</span>
                 </div>
                 <div class="row"> 
-                    <span class="text-muted" id="manual-jump">如果未能成功跳转，请点击<a herf='{$go_url}'>这里</a>手动跳转</span>
+                    <span class="text-muted" id="manual-jump">如果未能成功跳转，请点击<a href='{$go_url}'>这里</a>手动跳转</span>
                 </div>
             {/if}
         </div>
