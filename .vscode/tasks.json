@@ -1,0 +1,47 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "launch chrome",
+            "type": "shell",
+            "command": "${workspaceFolder}\\.vscode\\scripts\\launch_chrome.ps1",
+            "args": [
+                "${workspaceFolder}\\.vscode\\scripts",
+                //"--incognito", //  隐身模式启动
+                "--new-window", // 新窗口运行
+                "--no-first-run", // 非首次运行
+                "--no-default-browser-check", // 禁用默认浏览器检查
+                "--user-data-dir=${workspaceFolder}\\.vscode\\chrome-user-data", // 独立的用户数据文件夹
+                "--disable-plugins", // 禁止加载所有插件
+                "--app",
+                "${config:web.server.url}"
+            ],
+            "presentation": {
+                "echo": true,
+                "reveal": "never",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": true
+            }
+        },
+        {
+            "label": "close chrome",
+            "type": "shell",
+            "command": "${workspaceFolder}\\.vscode\\scripts\\close_chrome.ps1",
+            "args": [
+                "${workspaceFolder}\\.vscode\\scripts",
+            ],
+            "presentation": {
+                "echo": true,
+                "reveal": "never",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": true
+            }
+        }
+    ]
+}

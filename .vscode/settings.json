@@ -1,0 +1,15 @@
+{
+    "web.server.url": "http://localhost:9999",
+    "less.compile": {
+        "out": "${workspaceRoot}\\public\\static\\css\\"
+    },
+    "filewatcher.commands": [
+        {
+            "event": "onFileChange",
+            "match": ".\\\\conf\\\\nginx.conf",
+            "isAsync": true,
+            "autoClearConsole": true,
+            "cmd": "docker exec message-board-nginx nginx -s reload"
+        }
+    ]
+}
