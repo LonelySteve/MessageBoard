@@ -1,4 +1,10 @@
-.vscode/
+## vscode
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/tasks.json
+!.vscode/scripts
+## others
 .idea/
 lib/
 sql/
@@ -6,4 +12,3 @@ vendor/
 .env
 templates_c/
 log/
-
