@@ -25,7 +25,15 @@
 	"extensions": [
 		"felixfbecker.php-debug",
 		"felixfbecker.php-pack",
-		"felixfbecker.php-intellisense"
+		"felixfbecker.php-intellisense",
+		"donjayamanne.githistory",
+		"eamodio.gitlens",
+		"wmaurer.vscode-jumpy",
+		"yzhang.markdown-all-in-one",
+		"shd101wyy.markdown-preview-enhanced",
+		"davidanson.vscode-markdownlint",
+		"imperez.smarty",
+		"coenraads.bracket-pair-colorizer"
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [
