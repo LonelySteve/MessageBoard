@@ -21,10 +21,6 @@
             "hostname": "localhost",
             "port": 9001,
             "log": false,
-            "pathMappings": {
-                "/var/www/html/app": "${workspaceRoot}/src/app",
-                "/var/www/html/route": "${workspaceRoot}/src/route",
-            },
             "ignore": [
                 "**/vendor/**/*.php"
             ]

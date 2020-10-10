@@ -19,10 +19,16 @@ services:
     build:
       context: .
       dockerfile: .devcontainer/Dockerfile
-
+    
     volumes:
-      # Update this to wherever you want VS Code to mount the folder of your project
-      - .:/workspace:cached
+      - ./src/app:/var/www/html/app:cached
+      - ./src/route:/var/www/html/route:cached
+      - ./src/templates:/var/www/html/templates:cached
+      - ./.vscode:/var/www/html/.vscode:cached
+
+    # volumes:
+    #   # Update this to wherever you want VS Code to mount the folder of your project
+    #   - .:/var/www/html/:cached
 
       # Uncomment the next line to use Docker from inside the container. See https://aka.ms/vscode-remote/samples/docker-from-docker-compose for details.
       # - /var/run/docker.sock:/var/run/docker.sock
