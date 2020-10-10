@@ -15,7 +15,6 @@ class PostController extends BaseController
         $sql_builder = $dao->get_sql_builder_instance();
 
         $dao->insert([
-            "pid" => null,
             "name" => $name,
             "qq" => $qq,
             "email" => $email,

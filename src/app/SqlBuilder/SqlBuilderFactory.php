@@ -9,6 +9,8 @@ class SqlBuilderFactory
         switch ($name) {
             case "mysql":
                 return MySqlBuilder::class;
+            case "pgsql":
+                return PostgreSqlBuilder::class;
             default:
                 throw new \InvalidArgumentException("Unsupported database type (${$name})!");
         }

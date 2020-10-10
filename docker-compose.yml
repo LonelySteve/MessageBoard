@@ -2,19 +2,18 @@ version: "3"
 
 services:
   db:
-    image: mysql
-    command: --default-authentication-plugin=mysql_native_password
+    image: postgres:9.6
     restart: always
     container_name: "message-board-db"
     ports:
-      - "9999:80"
+      - 9999:80
     environment:
-      MYSQL_DATABASE: message_board
-      MYSQL_ROOT_PASSWORD: example
-      MYSQL_USER: example
-      MYSQL_PASSWORD: example
+      - POSTGRES_DB=message_board
+      - POSTGRES_USER=example
+      - POSTGRES_PASSWORD=example
     volumes:
-      - ./dump:/docker-entrypoint-initdb.d
+      - ./dump/pgsql:/docker-entrypoint-initdb.d
+      - ./db/postgres:/var/lib/postgresql/data
 
   app:
     build: .
@@ -25,7 +24,7 @@ services:
       DB_ADDR: db
       DB_USER: example
       DB_PASS: example
-      DB_TYPE: mysql
+      DB_TYPE: pgsql
     network_mode: service:db
 
   nginx:

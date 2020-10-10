@@ -136,14 +136,14 @@ class MySqlBuilder extends BaseSqlBuilder
     {
         // 根据  $use_name_placeholders 标志决定使用何种占位方式
         if ($this->use_name_placeholders) {
-            $this->segments[] = "LIMIT :__offset__" . ($size ? ", :__size__" : "");
+            $this->segments[] = "LIMIT :__offset__" . ($size ? " OFFSET :__size__" : "");
             $this->values += [
                 "__offset__" => $offset,
                 "__size__" => $size
             ];
         } else {
-            $this->segments[] = "LIMIT ?" . ($size ? ",?" : "");
-            $this->values += [$offset, $size];
+            $this->segments[] = "LIMIT ?" . ($size ? " OFFSET ?" : "");
+            $this->values += [$size, $offset];
         }
 
         return $this;

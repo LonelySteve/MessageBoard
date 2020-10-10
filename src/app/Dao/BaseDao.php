@@ -91,13 +91,13 @@ abstract class BaseDao
         if ($stat) {
             if (Util::array_is_assoc($data)) {
                 foreach ($data as $key => $value) {
-                    // NOTE: 命名占位符以 ":" 开头
+                    // NOTE: 命名占位符以 ":" 开头，与具体数据库类型无关
                     $stat->bindValue(":" . $key, $value, $pdo_value_types[$key]);
                 }
             } else {
                 reset($pdo_value_types);
                 for ($i = 0; $i < count($data); $i++) {
-                    // NOTE: 问号占位符从 1 开始计数
+                    // NOTE: 问号占位符从 1 开始计数，与具体数据库类型无关
                     $stat->bindValue($i + 1, $data[$i], current($pdo_value_types));
                     next($pdo_value_types);
                 }
