@@ -19,13 +19,13 @@
 
 ### 环境变量
 
-|  名称   |    默认值     |              含义              |
-| :-----: | :-----------: | :----------------------------: |
-| DB_NAME | message_board |           数据库名称           |
-| DB_ARRD |   127.0.0.1   |        数据库的主机地址        |
-| DB_USER |     admin     |         数据库的用户名         |
-| DB_PASS |    example    |          数据库的密码          |
-| DB_TYPE |     mysql     | 数据库的类型，目前只支持 mysql |
+| 名称    | 默认值        | 含义                                                  |
+| ------- | ------------- | ----------------------------------------------------- |
+| DB_NAME | message_board | 数据库名称                                            |
+| DB_ARRD | 127.0.0.1     | 数据库的主机地址                                      |
+| DB_USER | admin         | 数据库的用户名                                        |
+| DB_PASS | example       | 数据库的密码                                          |
+| DB_TYPE | pgsql         | 数据库的类型，目前只支持 mysql 和 PostgreSQL（pgsql） |
 
 ## TODO
 
